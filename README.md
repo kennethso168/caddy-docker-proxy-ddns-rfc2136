@@ -34,7 +34,7 @@ From time to time, I may make changes to the repo and bump the version number ma
 
 The repo is configured to auto accept all updates to caddy and its modules unless it is a major version update in the `semver` version number. No testing is done before release of images. Use the images at your own risk.
 
-I personally use this for my homelab, so I may test the released images from time to time manually and indicate as such in the release notes. Similarly, I will add a note or unpublish the release if I find that the image breaks.
+I personally use this for my homelab, so I may test the released images from time to time manually and indicate as such in the release notes. (Only for the `amd64` build though). Similarly, I will add a note or unpublish the release if I find that the image breaks.
 
 Automatic testing may be added in the future.
 
