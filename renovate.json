@@ -17,18 +17,6 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ],
-  "bumpVersions": [
-    {
-      "filePatterns": [
-        "version.txt"
-      ],
-      "matchStrings": [
-        "(?<version>[0-9]+.[0-9]+.[0-9]+)"
-      ],
-      "bumpType": "{{#if isPatch}}patch{{else}}{{#if isMajor}}major{{else}}minor{{/if}}{{/if}}",
-      "name": "Updating release version file"
-    }
-  ],
   "logLevelRemap": [
     {
       "matchMessage": "/bumpVersions/",
@@ -42,6 +30,22 @@
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "ignoreTests": true
+    },
+    {
+      "description": "Only automatically bump versions for changes in Dockerfile",
+      "matchFileNames": ["Dockerfile"],
+      "bumpVersions": [
+        {
+          "filePatterns": [
+            "version.txt"
+          ],
+          "matchStrings": [
+            "(?<version>[0-9]+.[0-9]+.[0-9]+)"
+          ],
+          "bumpType": "{{#if isPatch}}patch{{else}}{{#if isMajor}}major{{else}}minor{{/if}}{{/if}}",
+          "name": "Updating release version file"
+        }
+      ]
     }
   ]
 }
