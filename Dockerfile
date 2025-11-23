@@ -1,5 +1,4 @@
-ARG CADDY_VERSION=2.10.0
-FROM caddy:${CADDY_VERSION}-builder AS builder
+FROM caddy:2.10.0-builder AS builder
 
 RUN xcaddy build \
     # renovate: datasource=github-releases depName=lucaslorentz/caddy-docker-proxy
@@ -9,7 +8,7 @@ RUN xcaddy build \
     # renovate: datasource=github-tags depName=caddy-dns/rfc2136
     --with github.com/caddy-dns/rfc2136@v1.0.0
 
-FROM caddy:${CADDY_VERSION}-alpine
+FROM caddy:2.10.0-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
