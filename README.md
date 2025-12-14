@@ -26,6 +26,8 @@ I recommend using a specific tag (e.g. `ghcr.io/kennethso168/caddy-docker-proxy-
 
 Caddy, caddy-docker-proxy and caddy's rfc2136 all have `semver` like versions (i.e. in the format of `<major>.<minor>.<patch>`). This repo uses `semver` versioning too. Renovate will bump the major, minor or patch part of the version number according to the corresponding part of the new version of the updated component.
 
+Caddy's docker image is also often rebuilt with the same version tag. The digest of the docker image is tracked. The patch part of the version number will be bumped when the digest changes.
+
 For the Dynamic DNS module, unfortunately no releases/tags with version number are provided. Therefore the commit SHA digest is used to pin the version of the module. Renovate still tracks this. All updates of this module will trigger a bump of the minor part of the version number.
 
 From time to time, I may make changes to the repo and bump the version number manually. The part of the version number that get bumped is decided with my discretion. Usually, simple rebuilds have the `patch` part of the version number bumped.
