@@ -42,7 +42,7 @@
           "matchStrings": [
             "(?<version>[0-9]+.[0-9]+.[0-9]+)"
           ],
-          "bumpType": "{{#if isPatch}}patch{{else}}{{#if isMajor}}major{{else}}minor{{/if}}{{/if}}",
+          "bumpType": "{{#if (containsString depName 'caddy-dynamicdns')}}minor{{else}}{{#if isMinor}}minor{{else}}{{#if isMajor}}major{{else}}patch{{/if}}{{/if}}{{/if}}",
           "name": "Updating release version file"
         }
       ]
