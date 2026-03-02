@@ -2,7 +2,7 @@ FROM caddy:2.11.1-builder@sha256:9780b126deae015b2c262fa9f4f1f951577e1f6a5fe4d88
 
 RUN xcaddy build \
     # renovate: datasource=github-releases depName=lucaslorentz/caddy-docker-proxy
-    --with github.com/lucaslorentz/caddy-docker-proxy@v2.10.0 \
+    --with github.com/lucaslorentz/caddy-docker-proxy@v2.11.0 \
     # renovate: datasource=git-refs depName=https://github.com/mholt/caddy-dynamicdns.git
     --with github.com/mholt/caddy-dynamicdns@1af4f88765982db86ce091eeb075cfb2d9348dc8 \
     # renovate: datasource=github-tags depName=caddy-dns/rfc2136
