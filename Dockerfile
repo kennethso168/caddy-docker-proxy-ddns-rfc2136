@@ -1,4 +1,4 @@
-FROM caddy:2.11.1-builder@sha256:4c616f045f9569b3c216c4c3d4afdc418c44d2b9b301358d9a0bc83f6e3927a8 AS builder
+FROM caddy:2.11.2-builder@sha256:d4f984844fc3b867ac88fd814285a38eaaf5b3ecadb9ca1b3b0397182ef60cfe AS builder
 
 RUN xcaddy build \
     # renovate: datasource=github-releases depName=lucaslorentz/caddy-docker-proxy
@@ -8,7 +8,7 @@ RUN xcaddy build \
     # renovate: datasource=github-tags depName=caddy-dns/rfc2136
     --with github.com/caddy-dns/rfc2136@v1.0.0
 
-FROM caddy:2.11.1-alpine@sha256:3b2a0196e0687279c14c27adff9fc6b44acfa318dbb97eaebe385bdf99e5364c
+FROM caddy:2.11.2-alpine@sha256:fce4f15aad23222c0ac78a1220adf63bae7b94355d5ea28eee53910624acedfa
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
