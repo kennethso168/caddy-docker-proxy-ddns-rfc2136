@@ -61,7 +61,7 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
 
       - name: Release
-        uses: softprops/action-gh-release@e7a8f85e1c67a31e6ed99a94b41bd0b71bbee6b8 # v2.0.9
+        uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
         with:
             generate_release_notes: true
             tag_name: ${{ steps.tag_version.outputs.tag }}
