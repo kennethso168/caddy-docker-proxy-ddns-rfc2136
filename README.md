@@ -10,7 +10,7 @@ Therefore, I have built this repo to automatically build my own image of caddy f
 
 In addition, `ca-certificates` and `curl` are installed to the image just like [Caddy Docker Proxy's alpine image](https://github.com/lucaslorentz/caddy-docker-proxy/blob/master/Dockerfile-alpine). This allows accessing the caddy api endpoint for e.g. debugging and graceful reload (See example usecase below)
 
-The versions of caddy and the above modules are tracked by [Renovate](https://www.mend.io/renovate/). With any new versions Renovate automatically updates the relevant version in the Dockerfile and bumps this repo's version at `version.txt`. This triggers GitHub Actions workflow to automatically build the docker image, push it to GitHub Container Registry (GHCR), and create a new release with changelog. Everything is done automatically.
+The versions of caddy and the above modules are tracked by [Renovate](https://www.mend.io/renovate/). With any new versions Renovate automatically updates the relevant version in the Dockerfile and bumps this repo's version at `version.txt`. (Note that there is a 3-day waiting period if supported. See [Security](#security) for details) This triggers GitHub Actions workflow to automatically build the docker image, push it to GitHub Container Registry (GHCR), and create a new release with changelog. Everything is done automatically.
 
 This also serves as an example of how to automatically build a custom caddy image with continuous integration and continuous delivery (CI/CD). It is actually quite easy! Some hints are shared below for making your own custom caddy image.
 
@@ -34,11 +34,22 @@ From time to time, I may make changes to the repo and bump the version number ma
 
 ## Testing and release
 
-The repo is configured to auto accept all updates to caddy and its modules unless it is a major version update in the `semver` version number. No testing is done before release of images. Use the images at your own risk.
+The repo is configured to auto accept all updates (after the 3-day waiting period if supported as mentioned in [Security](#security)) to caddy and its modules unless it is a major version update in the `semver` version number. No testing is done before release of images. Use the images at your own risk.
 
 I personally use this for my homelab, so I may test the released images from time to time manually and indicate as such in the release notes. (Only for the `amd64` build though). Similarly, I will add a note or unpublish the release if I find that the image breaks.
 
 Automatic testing may be added in the future.
+
+## Security
+
+The following security measures are implemented:
+
+- [Docker image tags](https://docs.renovatebot.com/upgrade-best-practices/#extends-dockerpindigests) and [GitHub action versions](https://docs.renovatebot.com/upgrade-best-practices/#extends-helperspingithubactiondigests) are pinned to their digests
+- [Minimum release age](https://docs.renovatebot.com/upgrade-best-practices/#wait-two-weeks-before-automerging-third-party-dependencies) is configured to be 3 days for supported dependencies
+    - Renovate's recommendation is actually 2 weeks, but this will be too long for this project
+    - Not all update types support minimum release age. For example, digest updates do not support this function so they will get merged immediately.
+
+Please let me know if anything can be improved.
 
 ## Use case
 
