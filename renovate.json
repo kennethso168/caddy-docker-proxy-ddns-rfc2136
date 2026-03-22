@@ -4,8 +4,11 @@
     "config:recommended",
     "docker:pinDigests",
     ":separatePatchReleases",
-    ":semanticCommits"
+    ":semanticCommits",
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "customManagers": [
     {
       "customType": "regex",
