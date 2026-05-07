@@ -1,4 +1,4 @@
-FROM caddy:2.11.2-builder@sha256:10ed0251c5cd1dbb4db0b71ad43121147961a51adfec35febce2c93ea25c24f4 AS builder
+FROM caddy:2.11.2-builder@sha256:857ff3d3d0ccd63456dbd8899d66cba15e199a22d0d18e13a1d102838970542c AS builder
 
 RUN xcaddy build \
     # renovate: datasource=github-releases depName=lucaslorentz/caddy-docker-proxy
