@@ -8,7 +8,7 @@ RUN xcaddy build \
     # renovate: datasource=github-tags depName=caddy-dns/rfc2136
     --with github.com/caddy-dns/rfc2136@v1.0.0
 
-FROM caddy:2.11.4-alpine@sha256:ed26d6d77aaec5366102f2abb4eeba98ebd356159b49c2ed6e20181ecddb27a7
+FROM caddy:2.11.4-alpine@sha256:c2af7d9004854180322ffd6f81b918874cee01f629084ab4d8ac0b96aa442432
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
