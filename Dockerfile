@@ -4,7 +4,7 @@ RUN xcaddy build \
     # renovate: datasource=github-releases depName=lucaslorentz/caddy-docker-proxy
     --with github.com/lucaslorentz/caddy-docker-proxy@v2.13.1 \
     # renovate: datasource=git-refs depName=https://github.com/mholt/caddy-dynamicdns.git
-    --with github.com/mholt/caddy-dynamicdns@a5890c9df68cb7ed603f552a624f6123a5fad2ff \
+    --with github.com/mholt/caddy-dynamicdns@67d107a42c0279f6e6d58a6afe646745c8b44f78 \
     # renovate: datasource=github-tags depName=caddy-dns/rfc2136
     --with github.com/caddy-dns/rfc2136@v1.0.0
 
